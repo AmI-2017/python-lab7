@@ -1,0 +1,41 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}ToDo List REST client{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>ToDo List REST client</h1>
+        <div class="jumbotron">
+            <h2>Your tasks</h2>
+        </div>
+        <table class="table table-striped table-condensed" id="task-list">
+            <thead>
+            <tr>
+                <th>Task</th>
+                <th>Urgent</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div id="errorbox"></div>
+        <form id="add-task" action="#" method="post" class="form-inline" onsubmit="insertNewTask(event);">
+            <div class="form-group">
+                <label for="description">Insert a new task:</label>
+                <input id="description" type="text" name="description" class="form-control">
+            </div>
+            <div class="checkbox">
+                <input id="urgentCheckBox" type="checkbox" name="urgent"> Urgent
+            </div>
+            <input type="submit" value="Enter" class="btn btn-primary">
+        </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/tasks.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,9 @@
+curl -X POST http://localhost:5000/api/v1.0/tasks -d @new_task.json --header "Content-Type: application/json"
+
+curl -X POST http://localhost:5000/api/v1.0/tasks -d @wrong_task.json --header "Content-Type: application/json"
+
+curl -X PUT http://localhost:5000/api/v1.0/tasks/7 -d @update_task.json --header "Content-Type: application/json"
+
+curl -X DELETE http://localhost:5000/api/v1.0/tasks/7 --header "Content-Type: application/json"
+
+curl -X GET http://localhost:5000/api/v1.0/tasks?search_substring=:project --header "Content-Type: application/json"
